@@ -384,7 +384,7 @@ BOOL AppInit(HINSTANCE hInst, HINSTANCE hPrev, int sw)
     gcap.fCapCC    = GetProfileInt(TEXT("annie"), TEXT("CaptureCC"), FALSE);
 
     // do we want preview?
-    gcap.fWantPreview = GetProfileInt(TEXT("annie"), TEXT("WantPreview"), FALSE);
+    gcap.fWantPreview = GetProfileInt(TEXT("annie"), TEXT("WantPreview"), TRUE);
 
     // which stream should be the master? NONE(-1) means nothing special happens
     // AUDIO(1) means the video frame rate is changed before written out to keep
@@ -2853,8 +2853,8 @@ void ChooseDevices(TCHAR *szVideo, TCHAR *szAudio)
         if(gcap.iNumVCapDevices > 0)
         {
             IMonRelease(pmVideo);
-            ASSERT(gcap.rgpmVideoMenu[0] != NULL);
-            pmVideo = gcap.rgpmVideoMenu[0];
+            ASSERT(gcap.rgpmVideoMenu[1] != NULL);
+            pmVideo = gcap.rgpmVideoMenu[1];
             pmVideo->AddRef();
         }
         else
