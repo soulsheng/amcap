@@ -23,7 +23,7 @@
 //project
 #include "amcap.h"
 #include "crossbar.h"
-#include "rev.h"
+//#include "rev.h"
 #include "SampleCGB.h"
 #include "status.h"
 #include "stdafx.h"
@@ -236,7 +236,7 @@ void SetAppCaption()
     }
     SetWindowText(ghwndApp, tach);
 }
-
+#if 0
 //print help
 void usage() {
 	wprintf(L"Usage: amcap [-v]\n-v, --version\tprint version\n");
@@ -268,7 +268,7 @@ bool parse_arguments() {
 	LocalFree(argv);
 	return true;
 }
-
+#endif
 
 /*----------------------------------------------------------------------------*\
 |   AppInit( hInst, hPrev)                                                     |
@@ -493,7 +493,7 @@ int PASCAL WinMain(HINSTANCE hInst, HINSTANCE hPrev, LPSTR szCmdLine, int sw)
 {
     MSG msg;
 
-	if (!parse_arguments()) return 0;
+	//if (!parse_arguments()) return 0;
 
     /* Call initialization procedure */
     if(!AppInit(hInst,hPrev,sw))
